@@ -1,0 +1,19 @@
+.face_detect {
+  margin: auto;
+  width: 37%;
+}
+
+.image_box {
+  display: flex;
+  position: absolute;
+}
+.image_box img {
+  height: 512px;
+  width: 720px;
+}
+.boxes {
+  position: relative;
+  display: inline-flex;
+  height: 512px;
+  width: 720px;
+}

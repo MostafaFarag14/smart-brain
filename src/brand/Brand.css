@@ -1,0 +1,10 @@
+.Brand img{
+  height: 80px;
+  width: 100px;
+  padding: 10px;
+  margin-top: 5px;
+}
+.Brand{
+  display: flex;
+  justify-content: flex-start;
+}
