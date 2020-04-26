@@ -1,6 +1,5 @@
 {
   "name": "smart_brain",
-  "homepage": "http://mostafafarag14.github.io/smart-brain",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
