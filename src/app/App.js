@@ -29,6 +29,16 @@ class App extends React.Component {
     this.state = initialState
   }
 
+  componentWillMount(){
+    fetch('https://radiant-peak-65277.herokuapp.com/',
+    {
+      method: 'get',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+  }
+
   onInputChange = (event) => {
     console.log(event.target.value)
     this.setState({ input: event.target.value })
@@ -89,7 +99,7 @@ class App extends React.Component {
           <Route exact path="/">
             <NavBar resetState={this.resetState}/>
             <Login getUserInfo={this.getUserInfo} authenticate = {this.authenticate}/>
-            <div id="warning">enter byanatak y hamada</div>
+            <div style={{display: 'none'}} id="warning">enter byanatak y hamada</div>
           </Route>
           <Route path="/register">
             <NavBar resetState={this.resetState}/>

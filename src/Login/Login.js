@@ -35,12 +35,11 @@ export default class Login extends Component {
         
         if (response.status !== 200) {
           var warning = document.getElementById('warning')
-          warning.innerText = 'ya haaaaaaaammaaaaaaaaada'
+          warning.style.display = "block"
+          warning.innerText = 'Invalid email or password'
           warning.style.color = 'red'
           throw Error
         }
-        console.log(response)
-        // document.getElementById('signInLink').removeEventListener('click', this.disableLink)
         return response.json()
       }
       )
