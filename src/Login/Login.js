@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Container } from 'react-bootstrap'
+import { Form, Button, Container, Alert } from 'react-bootstrap'
 import { useHistory, Redirect, Router } from "react-router-dom";
 
 export default class Login extends Component {
@@ -32,7 +32,7 @@ export default class Login extends Component {
       }
     )
       .then(response => {
-        
+
         if (response.status !== 200) {
           var warning = document.getElementById('warning')
           warning.style.display = "block"
@@ -46,24 +46,24 @@ export default class Login extends Component {
       .then(data => {
         console.log(data)
         // this.props.authenticate()
-        this.setState({authorized: true})
+        this.setState({ authorized: true })
         // this.setState({ authorized: true })
         getUserInfo(data.name, data.entries, data.id)
-        
+
       })
       .catch(err => {
         console.log(err)
       })
   }
   render() {
-    if(this.state.authorized){
+    if (this.state.authorized) {
       console.log(this.state.authorized)
-        return <Redirect to='/home'/>
+      return <Redirect to='/home' />
     }
-    else{
+    else {
 
       return (
-        <Container style={{ width: "30%" }}>
+        <Container style={{ width: "30rem", maxWidth: '80%' }}>
           <div>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
@@ -71,7 +71,7 @@ export default class Login extends Component {
                 this.setState({ email: e.target.value })
               }} />
             </Form.Group>
-  
+
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={(e) => {
@@ -79,11 +79,24 @@ export default class Login extends Component {
               }} />
             </Form.Group>
             {
-                <Button variant="primary" type="button" onClick={this.handleLogin}>
-                  Sign in
+              <Button variant="primary" type="button" onClick={this.handleLogin}>
+                Sign in
                  </Button>
             }
           </div >
+          <Alert style={{ marginTop: '1rem' }} variant='info'>
+            <div>
+              <h5>You can register a new account</h5>
+              <h5>or login using this existing one:</h5>
+            </div>
+            <div>
+              <p style={{ marginTop: '1rem', marginBottom: 0 }}>
+                Email: test@test.com
+            </p>
+              <p>Password: 1234</p>
+            </div>
+
+          </Alert>
         </Container >
       )
     }

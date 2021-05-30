@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
-import { Link, Redirect } from 'react-router-dom'
-import './Register.css'
+import { Redirect } from 'react-router-dom'
 export default class Register extends Component {
   constructor(props) {
     super(props)
@@ -51,7 +50,7 @@ export default class Register extends Component {
       return <Redirect to = '/home'/>
     }
     return (
-      <Container style={{ width: "30%" }}>
+      <Container style={{width: '30rem', maxWidth: '80%' }}>
         <div>
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>
