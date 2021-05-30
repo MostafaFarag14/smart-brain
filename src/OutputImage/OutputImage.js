@@ -1,4 +1,5 @@
 import React from 'react'
+import { Image } from 'react-bootstrap'
 import './OutputImage.css'
 
 const getPostition = side => {
@@ -7,10 +8,8 @@ const getPostition = side => {
 export default function OutputImage({ imageUrl, regions, ready }) {
   return (
     <div className="face_detect">
-      <div className="image_box">
-        <img src={imageUrl} alt="" />
-      </div>
-      {regions && ready &&<div className="boxes">
+      {imageUrl && <Image className='image_box' alt='image contains faces' src={imageUrl} />}
+      {regions && ready && <div className="boxes">
         {regions.map((region, index) => {
           const box_style = {
             display: 'flex',
@@ -26,7 +25,7 @@ export default function OutputImage({ imageUrl, regions, ready }) {
           )
         })
         }
-      </div>} 
+      </div>}
     </div>
   )
 }
